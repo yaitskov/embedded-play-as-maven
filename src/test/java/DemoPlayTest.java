@@ -14,6 +14,8 @@ public class DemoPlayTest {
                         fromComponents(components)
                                 .GET("/hello/:to")
                                 .routeTo(to -> ok("Cześć [" + to + "]"))
+                                .POST("/echo")
+                                .routeTo(() -> ok("Gut"))
                                 .build());
         Thread.sleep(1111111);
     }
