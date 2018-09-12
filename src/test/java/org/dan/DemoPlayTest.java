@@ -1,3 +1,7 @@
+package org.dan;
+
+import static play.mvc.Controller.request;
+//import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.ok;
 import static play.routing.RoutingDsl.fromComponents;
 import static play.server.Server.forRouter;
@@ -15,7 +19,7 @@ public class DemoPlayTest {
                                 .GET("/hello/:to")
                                 .routeTo(to -> ok("Cześć [" + to + "]"))
                                 .POST("/echo")
-                                .routeTo(() -> ok("Gut"))
+                                .routeTo(() -> ok("Gut: " + request().body().asText() + "\n"))
                                 .build());
         Thread.sleep(1111111);
     }
